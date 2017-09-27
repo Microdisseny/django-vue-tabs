@@ -1,0 +1,9 @@
+*~
+*.sqlite3
+*.pyc
+__pycache__
+virtualenv.sh
+/build/
+/dist/
+django_tabs.egg-info
+venv
