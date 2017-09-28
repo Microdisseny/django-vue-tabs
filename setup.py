@@ -18,7 +18,7 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='django-tabs',
+    name='django_tabs',
     description='Add tabs to ModelAdmin ',
     version=VERSION,
     author='Alexandre Busquets Triola',
