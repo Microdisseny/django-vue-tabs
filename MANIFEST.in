@@ -1,3 +1,4 @@
 include README.rst
+include LICENSE.md
 recursive-include django_tabs/static *
 recursive-include django_tabs/templates *

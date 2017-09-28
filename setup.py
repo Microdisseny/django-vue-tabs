@@ -6,7 +6,7 @@ VERSION = '0.0.2'
 CLASSIFIERS = [
     'Framework :: Django',
     'Intended Audience :: Developers',
-    'License :: OSI Approved :: BSD License',
+    'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
     'Topic :: Software Development',
     'Programming Language :: Python',
@@ -23,7 +23,7 @@ setup(
     version=VERSION,
     author='Alexandre Busquets Triola',
     author_email='abusquets@gmail.com',
-    license='BSD License',
+    license='MIT License',
     platforms=['OS Independent'],
     url='http://github.com/microdisseny/django-tabs',
     packages=find_packages(exclude=['__pycache__']),
