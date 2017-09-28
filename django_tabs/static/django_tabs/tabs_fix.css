@@ -1,9 +1,0 @@
-@media (min-width: 700px) {
-  .tabs-component-panels {
-    padding: 1em 0.4em;
-  }
-}
-
-.tabs-component-tabs li {
-  list-style: none;
-}

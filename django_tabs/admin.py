@@ -4,10 +4,7 @@ from . import settings
 class TabsMixin(object):
     class Media:
         css = {
-            'all': (
-                'django_tabs/vue-tabs-component-1.1.0.css',
-                'django_tabs/tabs_fix.css',
-                )
+            'all': ('django_tabs/vue-tabs-component-1.1.0.css',)
         }
         js = []
         if settings.DJANGO_TABS_USE_VUE_JS:
