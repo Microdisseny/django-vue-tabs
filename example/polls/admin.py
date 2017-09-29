@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django_tabs.admin import TabsMixin
+from django_vue_tabs.admin import TabsMixin
 
 
 from .models import (

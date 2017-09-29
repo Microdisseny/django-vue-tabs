@@ -18,14 +18,14 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='django_tabs',
+    name='django_vue_tabs',
     description='Add tabs to ModelAdmin ',
     version=VERSION,
     author='Alexandre Busquets Triola',
     author_email='abusquets@gmail.com',
     license='MIT License',
     platforms=['OS Independent'],
-    url='http://github.com/microdisseny/django-tabs',
+    url='http://github.com/microdisseny/django-vue-tabs',
     packages=find_packages(exclude=['__pycache__']),
     include_package_data=True,
     classifiers=CLASSIFIERS,

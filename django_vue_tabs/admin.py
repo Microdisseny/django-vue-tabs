@@ -4,13 +4,13 @@ from . import settings
 class TabsMixin(object):
     class Media:
         css = {
-            'all': ('django_tabs/vue-tabs-component-1.1.0.css',)
+            'all': ('django_vue_tabs/vue-tabs-component-1.1.0.css',)
         }
         js = []
-        if settings.DJANGO_TABS_USE_VUE_JS:
-            js.append('django_tabs/vue-2.4.2.min.js')
-        js += ['django_tabs/vue-tabs-component-1.1.0.js',
-               'django_tabs/tabs.js']
+        if settings.DJANGO_VUE_TABS_USE_VUE_JS:
+            js.append('django_vue_tabs/vue-2.4.2.min.js')
+        js += ['django_vue_tabs/vue-tabs-component-1.1.0.js',
+               'django_vue_tabs/tabs.js']
 
     def add_view(self, request, form_url='', extra_context=None):
         extra_context = extra_context or {}

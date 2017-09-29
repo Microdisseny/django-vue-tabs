@@ -3,8 +3,8 @@
 <script type="text/javascript" charset="utf-8">
 django.jQuery(document).ready(function() {
     var $ = django.jQuery;
-    add_tabs('#{{ opts.model_name }}_form tabs.django_tabs');
-    $('#{{ opts.model_name }}_form div.django_tabs .tabs-component-panels section').each(function (i, item){
+    add_tabs('#{{ opts.model_name }}_form tabs.django_vue_tabs');
+    $('#{{ opts.model_name }}_form div.django_vue_tabs .tabs-component-panels section').each(function (i, item){
         var data_from = $(item).attr('data-from');
         if (data_from) {
             var data_from_items = data_from.split(',');
@@ -18,7 +18,7 @@ django.jQuery(document).ready(function() {
 {{ block.super }}
 {% endblock %}
 {% block field_sets %}
-<tabs class="django_tabs">
+<tabs class="django_vue_tabs">
     {% for tab in tabs %}
       <tab id="{{ tab.0|slugify }}" name="{{ tab.0 }}" data-from="{{ tab.1|join:',' }}"></tab>
     {% endfor %}

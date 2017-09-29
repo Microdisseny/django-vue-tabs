@@ -1,14 +1,16 @@
-#Django Tabs
+# Django Tabs
 
 
-##Usage
+## Usage
 
 
-Add **django\_tabs** to **INSTALLED\_APPS**
+Add **django\_vue\_tabs** to **INSTALLED\_APPS**
 
 Add **TabsMixin** in your **ModelAdmin**
 
 ```python
+from django_vue_tabs.admin import TabsMixin
+
 class QuestionAdmin(TabsMixin, admin.ModelAdmin):
 ```
 
@@ -55,7 +57,7 @@ Example image:
 
 - Alexandre Busquets Triola
 
-This package uses **Spatie bvba** [vue-tabs-component](https://github.com/spatie/vue-tabs-component)
+This package uses **Spatie bvba** [vue-tabs-component](https://github.com/spatie/vue-tabs-component).
 
 
 ## License

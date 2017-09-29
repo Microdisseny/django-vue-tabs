@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django_tabs',
+    'django_vue_tabs',
     'polls',
     'django.contrib.admin',
     'django.contrib.auth',
