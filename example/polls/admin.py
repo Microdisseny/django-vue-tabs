@@ -14,6 +14,10 @@ class ChoiceInline(admin.TabularInline):
 
 
 class QuestionAdmin(TabsMixin, admin.ModelAdmin):
+
+    # change_form_template = 'django_vue_tabs/change_form.html'
+    change_form_template = 'admin/polls/question/change_form.html'
+
     fieldsets = [
         ('Text', {
             'fields': ['question_text'],

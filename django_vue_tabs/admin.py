@@ -2,6 +2,8 @@ from . import settings
 
 
 class TabsMixin(object):
+    change_form_template = 'django_vue_tabs/change_form.html'
+
     class Media:
         css = {
             'all': ('django_vue_tabs/vue-tabs-component-1.1.0.css',)
