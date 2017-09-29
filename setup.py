@@ -19,7 +19,7 @@ CLASSIFIERS = [
 
 setup(
     name='django_vue_tabs',
-    description='Add tabs to ModelAdmin ',
+    description='Django: Add tabs to ModelAdmin ',
     version=VERSION,
     author='Alexandre Busquets Triola',
     author_email='abusquets@gmail.com',
