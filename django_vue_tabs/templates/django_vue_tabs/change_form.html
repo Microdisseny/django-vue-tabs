@@ -7,9 +7,17 @@ django.jQuery(document).ready(function() {
     $('#{{ opts.model_name }}_form div.django_vue_tabs .tabs-component-panels section').each(function (i, item){
         var data_from = $(item).attr('data-from');
         if (data_from) {
+            var parent;
             var data_from_items = data_from.split(',');
             for (var n in data_from_items) {
-                $('.' + data_from_items[n]).appendTo(item);
+                parent = $('.' + data_from_items[n]).parent();
+                if (parent.hasClass('inline-related')){
+                    parent.parent().appendTo(item);
+                }else if(parent.hasClass('inline-group')){
+                    parent.appendTo(item);
+                }else{
+                    $('.' + data_from_items[n]).appendTo(item);
+                }
             }
         }
     });
