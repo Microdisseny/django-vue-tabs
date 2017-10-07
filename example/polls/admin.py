@@ -1,9 +1,8 @@
 from django.contrib import admin
 from django_vue_tabs.admin import TabsMixin
 
-
 from .models import (
-    Choice, Question
+    Choice, Question, Comment
 )
 
 
@@ -11,6 +10,12 @@ class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 3
     classes = ('inline-choices',)
+
+
+class CommentInline(admin.StackedInline):
+    model = Comment
+    extra = 1
+    classes = ('inline-comments',)
 
 
 class QuestionAdmin(TabsMixin, admin.ModelAdmin):
@@ -29,11 +34,12 @@ class QuestionAdmin(TabsMixin, admin.ModelAdmin):
         }),
     ]
 
-    inlines = (ChoiceInline,)
+    inlines = (ChoiceInline, CommentInline,)
     list_display = ('question_text', 'pub_date',)
     tabs = (
         ("Tab 1", ('fieldset-text',)),
-        ('Tab 2', ('inline-choices',))
+        ('Tab 2', ('inline-choices',)),
+        ('Tab 3', ('inline-comments',)),
     )
 
 

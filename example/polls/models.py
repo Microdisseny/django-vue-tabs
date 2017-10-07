@@ -19,3 +19,12 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+@python_2_unicode_compatible
+class Comment(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    comment = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.comment
