@@ -1,7 +1,7 @@
 from distutils.core import setup
 from setuptools import find_packages
 
-VERSION = '0.0.4'
+VERSION = '0.0.5'
 
 CLASSIFIERS = [
     'Framework :: Django',
