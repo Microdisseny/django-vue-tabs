@@ -16,14 +16,20 @@ class TabsMixin(object):
 
     def add_view(self, request, form_url='', extra_context=None):
         extra_context = extra_context or {}
-        extra_context['tabs'] = self.tabs or []
+        if hasattr(self, 'tabs'):
+            extra_context['tabs'] = self.tabs
+        else:
+            extra_context['tabs'] = []
         return super(TabsMixin, self).add_view(
             request, form_url=form_url,
             extra_context=extra_context)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         extra_context = extra_context or {}
-        extra_context['tabs'] = self.tabs or []
+        if hasattr(self, 'tabs'):
+            extra_context['tabs'] = self.tabs
+        else:
+            extra_context['tabs'] = []
         return super(TabsMixin, self).change_view(
             request, object_id=object_id, form_url=form_url,
             extra_context=extra_context)
