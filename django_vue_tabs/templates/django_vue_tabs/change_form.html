@@ -20,6 +20,12 @@ django.jQuery(document).ready(function() {
                 content.appendTo($(item));
             }
         }
+        if ($(item).has('.errorlist').length > 0) {
+          setTimeout(function () {
+            var node = $('#{{ opts.model_name }}_form div.django_vue_tabs ul.tabs-component-tabs li:nth-child('+(i+1)+') a');
+            node.css('color', '#ba2121');
+          }, 0);
+        }
     });
 });
 </script>
