@@ -5,16 +5,22 @@ from . import settings
 class TabsMixin(object):
     change_form_template = 'django_vue_tabs/change_form.html'
 
+    DJANGO_VUE_TABS_CSS = ['django_vue_tabs/vue-tabs-component-1.1.0.css']
+    DJANGO_VUE_TABS_JS = (
+        'django_vue_tabs/vue-tabs-component-1.1.0.js',
+        'django_vue_tabs/tabs.js'
+        )
+
     @property
     def media(self):
-        css = {
-            'all': ('django_vue_tabs/vue-tabs-component-1.1.0.css',)
-        }
+        css = super(TabsMixin, self).media._css
+        if 'all' not in css:
+            css['all'] = []
+        css['all'].extend(self.DJANGO_VUE_TABS_CSS)
         js = super(TabsMixin, self).media._js
         if settings.DJANGO_VUE_TABS_USE_VUE_JS:
             js.append('django_vue_tabs/vue-2.4.2.min.js')
-        js += ['django_vue_tabs/vue-tabs-component-1.1.0.js',
-               'django_vue_tabs/tabs.js']
+        js += self.DJANGO_VUE_TABS_JS
         return forms.Media(css=css, js=js)
 
     def add_view(self, request, form_url='', extra_context=None):
