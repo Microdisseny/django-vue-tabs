@@ -26,6 +26,24 @@ class TabsMixin(object):
         return super(TabsMixin, self).add_view(
             request, form_url=form_url,
             extra_context=extra_context)
+            
+    def make_tabs_includables(self):
+        if hasattr(self, 'tabs_includables'):
+            # TODO
+            return self.tabs_includables
+        
+        if not hasattr(self, 'tabs'):
+            return None
+            
+        result = []
+        for name, classes in tabs:
+            tab_fieldsets = []
+            for fieldset in self.get_fieldsets():
+                if 'classes' in fieldset and bool(set(classes) & set(fieldset['classes'])):
+                    tab_fieldsets.append(fieldset)
+            for fieldset in self.get_inline_formsets():
+                if 'classes' in fieldset and bool(set(classes) & set(fieldset['classes'])):
+                    tab_fieldsets.append(fieldset)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         extra_context = extra_context or {}

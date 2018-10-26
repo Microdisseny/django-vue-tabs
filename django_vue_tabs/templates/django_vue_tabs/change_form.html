@@ -5,40 +5,50 @@
 section.tabs-component-panel fieldset table{
     width: 100%;
 }
+
+
+{% for tab in tabs_includables %}
+{% if tab.has_error %}
+.django_vue_tabs .tabs-component-tabs .tabs-component-tab:nth-child({{ forloop.counter }}),
+.django_vue_tabs .tabs-component-tabs .tabs-component-tab:nth-child({{ forloop.counter }}) *,
+{% endif %}
+{% endfor %}
+/* prevent last comma from making it an invalid selector by adding a nothing selector */
+:not(*) {
+  color: red;
+}
 </style>
-<script type="text/javascript" charset="utf-8">
-django.jQuery(document).ready(function() {
-    var $ = django.jQuery;
-    add_tabs('#{{ opts.model_name }}_form tabs.django_vue_tabs');
-    $('#{{ opts.model_name }}_form div.django_vue_tabs .tabs-component-panels section').each(function (i, item){
-        var data_from = $(item).attr('data-from');
-        if (data_from) {
-            var content;
-            var data_from_items = data_from.split(',');
-            for (var n in data_from_items) {
-                content = $('.' + data_from_items[n]);
-                content.appendTo($(item));
-            }
-        }
-        if ($(item).has('.errorlist').length > 0) {
-          setTimeout(function () {
-            var node = $('#{{ opts.model_name }}_form div.django_vue_tabs ul.tabs-component-tabs li:nth-child('+(i+1)+') a');
-            node.css('color', '#ba2121');
-          }, 0);
-        }
-    });
-});
-</script>
 {% endif %}
 {{ block.super }}
 {% endblock %}
+
+
 {% block field_sets %}
-{% if tabs %}
-<tabs class="django_vue_tabs">
-    {% for tab in tabs %}
-      <tab id="{{ tab.0|slugify }}" name="{{ tab.0 }}" data-from="{{ tab.1|join:',' }}"></tab>
-    {% endfor %}
-</tabs>
-{% endif %}
-{{ block.super }}
+  {% if tabs %}
+    <tabs class="django_vue_tabs">
+        {% for tab in tabs_includables %}
+          <tab id="{{ tab.name|slugify }}" name="{{ tab.name }}">
+            {% for e in tab %}
+              {% if e.isinline %}
+                {% with inline_admin_formset = e.fieldset %}
+                  {% include inline_admin_formset.opts.template %}
+                {% endwith %}
+              {% else %}
+                {% with fieldset = e.fieldset %}
+                  {% include "admin/includes/fieldset.html" %}
+                {% endwith %}
+              {% endif %}
+            {% endfor %}
+          </tab>
+        {% endfor %}
+    </tabs>
+  {% else %}
+    {% block.super %}
+  {% endif %}
+{% endblock %}
+
+{% block inline_field_sets %}
+  {% if not tabs %}
+    {% block.super %}
+  {% endif %}
 {% endblock %}
