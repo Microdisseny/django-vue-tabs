@@ -5,9 +5,9 @@ from . import settings
 class TabsMixin(object):
     change_form_template = 'django_vue_tabs/change_form.html'
 
-    DJANGO_VUE_TABS_CSS = ['django_vue_tabs/vue-tabs-component-1.1.0.css']
+    DJANGO_VUE_TABS_CSS = ['django_vue_tabs/vue-tabs-component-1.5.1.css']
     DJANGO_VUE_TABS_JS = (
-        'django_vue_tabs/vue-tabs-component-1.1.0.js',
+        'django_vue_tabs/vue-tabs-component-1.5.1.js',
         'django_vue_tabs/tabs.js'
         )
 

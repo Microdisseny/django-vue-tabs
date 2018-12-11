@@ -4,8 +4,8 @@ var add_tabs = function (selector) {
   var app = new Vue({
       el: selector,
       components: {
-        Tabs,
-        Tab
+        tabs: Tabs,
+        tab: Tab
       }
   });
 };
