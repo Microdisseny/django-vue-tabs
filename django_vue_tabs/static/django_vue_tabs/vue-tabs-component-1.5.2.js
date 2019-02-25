@@ -9747,15 +9747,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             header: function header() {
                 return this.prefix + this.name + this.suffix;
             },
-            computedId: function computedId() {
-                return this.id ? this.id : this.name.toLowerCase().replace(/ /g, '-');
-            },
             hash: function hash() {
                 if (this.isDisabled) {
                     return '#';
                 }
 
-                return '#' + this.computedId;
+                return this.id ? '#' + this.id : '#' + this.name.toLowerCase().replace(/ /g, '-');
             }
         }
     };
@@ -9776,7 +9773,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "tabs-component-panel",
     attrs: {
       "aria-hidden": !_vm.isActive,
-      "id": _vm.computedId,
+      "id": _vm.hash,
       "role": "tabpanel"
     }
   }, [_vm._t("default")], 2)

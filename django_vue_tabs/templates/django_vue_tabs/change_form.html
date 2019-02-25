@@ -36,7 +36,7 @@ django.jQuery(document).ready(function() {
 {% if tabs %}
 <tabs class="django_vue_tabs">
     {% for tab in tabs %}
-      <tab id="{{ tab.0|slugify }}" name="{{ tab.0 }}" data-from="{{ tab.1|join:',' }}"></tab>
+      <tab name="{{ tab.0 }}" data-from="{{ tab.1|join:',' }}"></tab>
     {% endfor %}
 </tabs>
 {% endif %}

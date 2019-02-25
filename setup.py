@@ -2,7 +2,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 
-VERSION = '0.0.9'
+VERSION = '0.0.10'
 
 CLASSIFIERS = [
     'Framework :: Django',
@@ -22,8 +22,8 @@ setup(
     name='django_vue_tabs',
     description='Django: Add tabs to ModelAdmin ',
     version=VERSION,
-    author='Alexandre Busquets Triola',
-    author_email='abusquets@gmail.com',
+    author='MICRODISSENY GISCUBE SL',
+    author_email='tech@microdisseny.com',
     license='MIT License',
     platforms=['OS Independent'],
     url='http://github.com/microdisseny/django-vue-tabs',
