@@ -55,7 +55,7 @@ Example image:
 
 ## Credits
 
-- Alexandre Busquets Triola
+- Alexandre Busquets Triola - MICRODISSENY GISCUBE SL
 
 This package uses **Spatie bvba** [vue-tabs-component](https://github.com/spatie/vue-tabs-component).
 

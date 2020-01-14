@@ -9752,7 +9752,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                     return '#';
                 }
 
-                return this.id ? '#' + this.id : '#' + this.name.toLowerCase().replace(/ /g, '-');
+                return this.id ? '#' + this.id : '#' + encodeURIComponent(this.name);
             }
         }
     };
@@ -9940,6 +9940,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                 _expiringStorage2.default.set(this.storageKey, selectedTab.hash, this.cacheLifetime);
             },
             setTabVisible: function setTabVisible(hash, visible) {
+                var _this2 = this;
+
                 var tab = this.findTab(hash);
 
                 if (!tab) {
@@ -9954,7 +9956,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
                     this.tabs.every(function (tab, index, array) {
                         if (tab.isVisible) {
-                            tab.isActive = true;
+                            _this2.selectTab(tab.hash);
 
                             return false;
                         }
@@ -9969,17 +9971,17 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                 return this.tabs.indexOf(tab);
             },
             getTabHash: function getTabHash(index) {
-                var _this2 = this;
+                var _this3 = this;
 
                 var tab = this.tabs.find(function (tab) {
-                    return _this2.tabs.indexOf(tab) === index;
+                    return _this3.tabs.indexOf(tab) === index;
                 });
 
                 if (!tab) {
                     return;
                 }
 
-                return tab.hash;
+                return decodeURIComponent(tab.hash);
             },
             getActiveTab: function getActiveTab() {
                 return this.findTab(this.activeTabHash);
