@@ -39,7 +39,7 @@ class QuestionAdmin(TabsMixin, admin.ModelAdmin):
     tabs = (
         ("Tab 1", ('fieldset-text',)),
         ('Tab 2', ('inline-choices',)),
-        ('Tab 3', ('inline-comments',)),
+        ('Tab avió', ('inline-comments',)),
     )
 
 
