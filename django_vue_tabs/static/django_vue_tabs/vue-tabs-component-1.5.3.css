@@ -13,7 +13,7 @@ form ul.tabs-component-tabs {
   padding-left: 0px;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .tabs-component-tabs {
     border: 0;
     align-items: stretch;
@@ -43,7 +43,7 @@ form ul.tabs-component-tabs {
   color: #000;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .tabs-component-tab {
     background-color: #fff;
     border: solid 1px #ddd;
@@ -72,7 +72,7 @@ form ul.tabs-component-tabs {
   padding: 1em 0;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .tabs-component-panels {
     border-top-left-radius: 0;
     background-color: #fff;
