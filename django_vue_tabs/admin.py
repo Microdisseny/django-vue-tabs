@@ -27,14 +27,14 @@ class TabsMixin(object):
         return getattr(self, 'tabs', [])
 
     def add_view(self, request, form_url='', extra_context=None):
-        extra_context = extra_context or {}
+        extra_context = {} if extra_context is None else extra_context
         extra_context['tabs'] = self.get_tabs(request)
         return super(TabsMixin, self).add_view(
             request, form_url=form_url,
             extra_context=extra_context)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
-        extra_context = extra_context or {}
+        extra_context = {} if extra_context is None else extra_context
         extra_context['tabs'] = self.get_tabs(request, object_id)
         return super(TabsMixin, self).change_view(
             request, object_id=object_id, form_url=form_url,
