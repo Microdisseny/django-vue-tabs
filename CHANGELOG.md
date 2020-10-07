@@ -1,6 +1,11 @@
 # Changelog
 
-All notable changes to `vue-tabs-component` will be documented in this file
+`djnago-vue-tabs` notable changes
+
+## 0.0.13 - 2020-10-07
+- Fix getting extra_context
+
+`vue-tabs-component` notable changes
 
 ## 1.5.3 - 2020-01-22
 - Fix accented tabs

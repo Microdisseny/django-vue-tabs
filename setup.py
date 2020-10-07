@@ -2,7 +2,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 
-VERSION = '0.0.12'
+VERSION = '0.0.13'
 
 CLASSIFIERS = [
     'Framework :: Django',
@@ -10,8 +10,6 @@ CLASSIFIERS = [
     'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
     'Topic :: Software Development',
-    'Programming Language :: Python',
-    'Programming Language :: Python :: 2',
     'Programming Language :: Python :: 3',
     'Environment :: Web Environment',
     'Development Status :: 5 - Production/Stable',
